@@ -1,4 +1,8 @@
+import Button from '@mui/material/Button';
+
 export default function Controls({
+  clearInput,
+  disabled,
   getIpv4Data,
   showIpData,
   validIpv4Address
@@ -15,6 +19,7 @@ export default function Controls({
   };
 
   const clearIpData = () => {
+    clearInput('');
     showIpData(false);
   };
 
@@ -73,25 +78,29 @@ export default function Controls({
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-center w-2/4 m-auto">
-      <button
+    <div className="flex flex-col md:flex-row justify-center mt-8">
+      <Button
         className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center md:w-44"
+        disabled={disabled}
         onClick={getIpData}
+        variant="contained"
       >
         Find IP
-      </button>
-      <button
+      </Button>
+      <Button
         className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-4 md:mt-0 md:ml-4 md:w-44"
         onClick={getLocalIpData}
+        variant="contained"
       >
         My IP
-      </button>
-      <button
+      </Button>
+      <Button
         className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-4 md:mt-0 md:ml-4 md:w-44"
         onClick={clearIpData}
+        variant="contained"
       >
         Clear
-      </button>
+      </Button>
     </div>
   );
 }

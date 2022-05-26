@@ -1,6 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## IPv4 Geolocation
 
-## Getting Started
+This is a small web application which allows a user to enter an IPv4 address into an input, and retrieve location information based on [Maxmind's GeoLite2](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) service.
+
+An option to also retrieve data based on the local machine's IPv4 address also exists in the core functionality.
 
 First, run the development server:
 

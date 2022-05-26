@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
 
-import Controls from 'components/Controls';
 import IPv4Input from 'components/IPv4Input';
 import ListItemData from 'components/ListItemData';
 
@@ -42,18 +41,14 @@ export default function Home() {
           </legend>
           <section className="my-10 m-auto w-4/5">
             <IPv4Input
+              getIpv4Data={getIpv4Data}
               getValidIpv4Address={getValidIpv4Address}
               showIpData={showIpData}
+              validIpv4Address={validIpv4Address}
             />
           </section>
         </fieldset>
       </main>
-
-      <Controls
-        getIpv4Data={getIpv4Data}
-        showIpData={showIpData}
-        validIpv4Address={validIpv4Address}
-      />
 
       {showIpv4Data && (
         <ListItemData
