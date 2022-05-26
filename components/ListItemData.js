@@ -12,7 +12,7 @@ export default function OutlinedCard({
   state
 }) {
   const cityState = city ? `${city}, ${state}` : ``;
-  const divider = city? '|': '';
+  const divider = city ? '|' : '';
 
   return (
     <Box sx={{ width: 350, margin: '20px auto' }}>
@@ -24,8 +24,8 @@ export default function OutlinedCard({
           <Typography variant="h5" component="div">
             {ipv4}
           </Typography>
-          <Typography sx={{ fontSize: 14, mb: 3  }} color="text.secondary">
-            {`${cityState} ${divider} ${country.toUpperCase()}`}
+          <Typography sx={{ fontSize: 14, mb: 3 }} color="text.secondary">
+            {`${cityState} ${divider} ${country?.toUpperCase()}`}
           </Typography>
           <Typography sx={{ fontSize: 14 }} color="text.secondary">
             Latitude

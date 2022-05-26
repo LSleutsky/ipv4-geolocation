@@ -48,9 +48,7 @@ export default function Home() {
         </fieldset>
       </main>
 
-      {showIpv4Data && (
-        <ListItemData {...localIpv4Data} />
-      )}
+      {showIpv4Data && <ListItemData {...localIpv4Data} />}
     </>
   );
 }

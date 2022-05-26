@@ -8,6 +8,10 @@ export default function Controls({
   validIpv4Address
 }) {
   const retrievedIpv4Data = (data) => {
+    if (!data) {
+      return null;
+    }
+
     return {
       ipv4: data.traits.ipAddress,
       city: data?.city?.names?.en,
@@ -42,7 +46,7 @@ export default function Controls({
         const ipv4Data = retrievedIpv4Data(data);
 
         getIpv4Data(ipv4Data);
-        showIpData(true);
+        showIpData(!!ipv4Data);
       }
     } catch (error) {
       console.error(error);

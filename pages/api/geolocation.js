@@ -7,7 +7,13 @@ export default function handler(req, res) {
 
   const ipv4Address = req.body.validIpv4Address;
 
-  client.city(ipv4Address).then((data) => {
-    res.status(200).json({ data });
-  });
+  client.city(ipv4Address).then(
+    (data) => {
+      res.status(200).json({ data });
+    },
+    (error) => {
+      console.error(error);
+      res.status(400).send(error);
+    }
+  );
 }
