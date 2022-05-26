@@ -15,8 +15,6 @@ export default function OutlinedCard({
   const cityState = city ? `${city}, ${state}` : ``;
   const divider = city ? '|' : '';
 
-  console.info(error);
-
   return (
     <Box sx={{ width: 350, margin: '20px auto' }}>
       <Card className="shadow-none">

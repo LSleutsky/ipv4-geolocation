@@ -16,6 +16,12 @@ Alternatively, the app can also be ran with:
 docker-compose up
 ```
 
+If using V2 of _Docker Compose_, then the following command can be ran:
+
+```bash
+docker compose up
+```
+
 ## Enter IPv4 Address
 
 This input allows a user to enter an IPv4 address. The input field is blocked from entering characters that are not of an IPv4 format (_i.e 111.222.3.4_).
