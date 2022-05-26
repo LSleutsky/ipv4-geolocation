@@ -11,18 +11,21 @@ export default function OutlinedCard({
   longitude,
   state
 }) {
+  const cityState = city ? `${city}, ${state}` : ``;
+  const divider = city? '|': '';
+
   return (
     <Box sx={{ width: 350, margin: '20px auto' }}>
       <Card className="shadow-none">
         <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary">
             IPv4
           </Typography>
           <Typography variant="h5" component="div">
             {ipv4}
           </Typography>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            {`${city}, ${state} | ${country}`}
+          <Typography sx={{ fontSize: 14, mb: 3  }} color="text.secondary">
+            {`${cityState} ${divider} ${country.toUpperCase()}`}
           </Typography>
           <Typography sx={{ fontSize: 14 }} color="text.secondary">
             Latitude

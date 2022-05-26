@@ -21,8 +21,6 @@ export default function Home() {
     setShowIpv4Data(show);
   };
 
-  const { city, country, ipv4, latitude, longitude, state } = localIpv4Data;
-
   return (
     <>
       <Head>
@@ -51,14 +49,7 @@ export default function Home() {
       </main>
 
       {showIpv4Data && (
-        <ListItemData
-          city={city}
-          country={country}
-          latitude={latitude}
-          longitude={longitude}
-          ipv4={ipv4}
-          state={state}
-        />
+        <ListItemData {...localIpv4Data} />
       )}
     </>
   );

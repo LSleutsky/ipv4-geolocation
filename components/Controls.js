@@ -10,8 +10,8 @@ export default function Controls({
   const retrievedIpv4Data = (data) => {
     return {
       ipv4: data.traits.ipAddress,
-      city: data.city.names.en,
-      state: data.subdivisions[0].names.en,
+      city: data?.city?.names?.en,
+      state: data?.subdivisions?.[0]?.names?.en,
       country: data.country.names.en,
       latitude: data.location.latitude,
       longitude: data.location.longitude
@@ -80,22 +80,22 @@ export default function Controls({
   return (
     <div className="flex flex-col md:flex-row justify-center mt-8">
       <Button
-        className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center md:w-44"
+        className="normal-case text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center md:w-44"
         disabled={disabled}
         onClick={getIpData}
         variant="contained"
       >
-        Find IP
+        Find IPv4
       </Button>
       <Button
-        className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-4 md:mt-0 md:ml-4 md:w-44"
+        className="normal-case text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-4 md:mt-0 md:ml-4 md:w-44"
         onClick={getLocalIpData}
         variant="contained"
       >
-        My IP
+        My IPv4
       </Button>
       <Button
-        className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-4 md:mt-0 md:ml-4 md:w-44"
+        className="normal-case text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-4 md:mt-0 md:ml-4 md:w-44"
         onClick={clearIpData}
         variant="contained"
       >
