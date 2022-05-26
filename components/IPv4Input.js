@@ -24,7 +24,7 @@ export default function IPv4Input({
     setIsInvalidIp(!validateIp(inputValue));
   };
 
-  const clearInput = (input) => {
+  const inputValue = (input) => {
     setIpv4FormatOnly(input);
   };
 
@@ -52,7 +52,7 @@ export default function IPv4Input({
           variant="outlined"
         />
         <Controls
-          clearInput={clearInput}
+          inputValue={inputValue}
           disabled={isInvalidIp || !ipv4FormatOnly}
           getIpv4Data={getIpv4Data}
           showIpData={showIpData}

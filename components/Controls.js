@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 
 export default function Controls({
-  clearInput,
+  inputValue,
   disabled,
   getIpv4Data,
   showIpData,
@@ -23,7 +23,7 @@ export default function Controls({
   };
 
   const clearIpData = () => {
-    clearInput('');
+    inputValue('');
     showIpData(false);
   };
 
@@ -35,7 +35,7 @@ export default function Controls({
   const getIpData = async () => {
     try {
       if (validIpv4Address) {
-        const { data } = await fetch('api/geolocation', {
+        const { data, error } = await fetch('api/geolocation', {
           method: 'POST',
           body: JSON.stringify({ validIpv4Address }),
           headers: {
@@ -43,7 +43,7 @@ export default function Controls({
           }
         }).then((response) => response.json());
 
-        const ipv4Data = retrievedIpv4Data(data);
+        const ipv4Data = data ? retrievedIpv4Data(data) : { error };
 
         getIpv4Data(ipv4Data);
         showIpData(!!ipv4Data);
@@ -74,6 +74,7 @@ export default function Controls({
 
       const localIpv4Data = retrievedIpv4Data(localData);
 
+      inputValue('');
       getIpv4Data(localIpv4Data);
       showIpData(true);
     } catch (error) {
