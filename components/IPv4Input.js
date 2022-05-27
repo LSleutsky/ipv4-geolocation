@@ -39,26 +39,24 @@ export default function IPv4Input({
   };
 
   return (
-    <>
-      <div className="flex flex-col">
-        <TextField
-          error={isInvalidIp}
-          id={isInvalidIp ? 'outlined-error' : 'outlined-basic'}
-          helperText={isInvalidIp && 'Please enter valid IP'}
-          label="Enter IPv4 Address"
-          onChange={allowOnlyIpv4Format}
-          onBlur={(evt) => getValidIpv4(evt)}
-          value={ipv4FormatOnly}
-          variant="outlined"
-        />
-        <Controls
-          inputValue={inputValue}
-          disabled={isInvalidIp || !ipv4FormatOnly}
-          getIpv4Data={getIpv4Data}
-          showIpData={showIpData}
-          validIpv4Address={validIpv4Address}
-        />
-      </div>
-    </>
+    <div className="flex flex-col">
+      <TextField
+        error={isInvalidIp}
+        id={isInvalidIp ? 'outlined-error' : 'outlined-basic'}
+        helperText={isInvalidIp && 'Please enter valid IP'}
+        label="Enter IPv4 Address"
+        onChange={allowOnlyIpv4Format}
+        onBlur={(evt) => getValidIpv4(evt)}
+        value={ipv4FormatOnly}
+        variant="outlined"
+      />
+      <Controls
+        inputValue={inputValue}
+        disabled={isInvalidIp || !ipv4FormatOnly}
+        getIpv4Data={getIpv4Data}
+        showIpData={showIpData}
+        validIpv4Address={validIpv4Address}
+      />
+    </div>
   );
 }
