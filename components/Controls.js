@@ -1,9 +1,9 @@
-import Button from '@mui/material/Button';
+import Button from 'components/Button';
 
 export default function Controls({
-  inputValue,
   disabled,
   getIpv4Data,
+  setInputValue,
   showIpData,
   validIpv4Address
 }) {
@@ -23,7 +23,7 @@ export default function Controls({
   };
 
   const clearIpData = () => {
-    inputValue('');
+    setInputValue('');
     showIpData(false);
   };
 
@@ -74,7 +74,7 @@ export default function Controls({
 
       const localIpv4Data = retrievedIpv4Data(localData);
 
-      inputValue('');
+      setInputValue('');
       getIpv4Data(localIpv4Data);
       showIpData(true);
     } catch (error) {
@@ -85,27 +85,21 @@ export default function Controls({
   return (
     <div className="flex flex-col md:flex-row justify-center mt-8">
       <Button
-        className="normal-case text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center md:w-44"
+        className="bg-blue-200 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded font-medium rounded-lg text-sm px-5 py-4 text-center md:w-44 normal-case"
         disabled={disabled}
+        label="Find IPv4"
         onClick={getIpData}
-        variant="contained"
-      >
-        Find IPv4
-      </Button>
+      />
       <Button
-        className="normal-case text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-4 md:mt-0 md:ml-4 md:w-44"
+        className="bg-green-200 hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded font-medium rounded-lg text-sm px-5 py-4 text-center mt-4 md:mt-0 md:ml-4 md:w-44 normal-case"
+        label="My IPv4"
         onClick={getLocalIpData}
-        variant="contained"
-      >
-        My IPv4
-      </Button>
+      />
       <Button
-        className="normal-case text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-4 md:mt-0 md:ml-4 md:w-44"
+        className="bg-red-200 hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded font-medium rounded-lg text-sm px-5 py-4 text-center mt-4 md:mt-0 md:ml-4 md:w-44 normal-case"
+        label="Clear"
         onClick={clearIpData}
-        variant="contained"
-      >
-        Clear
-      </Button>
+      />
     </div>
   );
 }
