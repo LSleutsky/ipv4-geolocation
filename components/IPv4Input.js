@@ -23,6 +23,7 @@ export default function IPv4Input({
     }
 
     setIsInvalidIp(!validateIp(inputValue));
+    showIpData(false);
   };
 
   const getValidIpv4 = (evt) => {

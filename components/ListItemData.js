@@ -17,7 +17,7 @@ export default function OutlinedCard({
 
   return (
     <Box sx={{ width: 350, margin: '20px auto' }}>
-      <Card className="shadow-none">
+      <Card variant="outlined">
         <CardContent>
           {ipv4 ? (
             <>

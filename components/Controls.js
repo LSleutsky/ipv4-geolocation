@@ -43,7 +43,7 @@ export default function Controls({
           }
         }).then((response) => response.json());
 
-        const ipv4Data = data ? retrievedIpv4Data(data) : { error };
+        const ipv4Data = retrievedIpv4Data(data) ?? { error };
 
         getIpv4Data(ipv4Data);
         showIpData(!!ipv4Data);
@@ -96,7 +96,7 @@ export default function Controls({
         onClick={getLocalIpData}
       />
       <Button
-        className="bg-red-200 hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded font-medium rounded-lg text-sm px-5 py-4 text-center mt-4 md:mt-0 md:ml-4 md:w-44 normal-case"
+        className="bg-red-300 hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded font-medium rounded-lg text-sm px-5 py-4 text-center mt-4 md:mt-0 md:ml-4 md:w-44 normal-case"
         label="Clear"
         onClick={clearIpData}
       />

@@ -79,3 +79,5 @@ This button clears the content that is returned and rendered on screen based on 
 If a properly formatted IPv4 address is entered, a user can press `Find IPv4` to retrieve data for that IPv4. The content that is displayed for that data is simply overwritten if a user then presses `My IPv4`, and the new local data is then rendered in place. This also works vice-versa, so the correct data is always displayed for both local IPv4 and arbitrary IPv4, respectively.
 
 If a user enters a reserved IPv4 address - or any other not allowed IPv4 - and tries to press `Find IPv4`, there will be an error message displayed that is obtained from the GeoLite2 error response.
+
+When IPv4 data is displayed on screen, when the input changes in any way, the current IPv4 data on screen is cleared out, in preparation for the newly entered IPv4 input.
