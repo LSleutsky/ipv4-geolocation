@@ -1,3 +1,5 @@
+import { mapsApiKey } from 'config';
+
 export default function Map({
   latitude,
   longitude,
@@ -11,7 +13,7 @@ export default function Map({
       height="600"
       referrerpolicy="no-referrer-when-downgrade"
       style={{ margin: '0 auto' }}
-      src={`https://www.google.com/maps/embed/v1/view?key=AIzaSyC_U4rBA7QLVcqgWp5w_aP_hmERuLYF-1c
+      src={`https://www.google.com/maps/embed/v1/view?key=${mapsApiKey}
     &center=${latitude},${longitude}&zoom=${zoom}&maptype=${mapType}`}
     ></iframe>
   );
