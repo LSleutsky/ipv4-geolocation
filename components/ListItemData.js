@@ -54,7 +54,7 @@ export default function OutlinedCard({
           </CardContent>
         </Card>
       </Box>
-      <Map />
+      {!error && <Map latitude={latitude} longitude={longitude} />}
     </>
   );
 }

@@ -81,3 +81,7 @@ If a properly formatted IPv4 address is entered, a user can press `Find IPv4` to
 If a user enters a reserved IPv4 address - or any other not allowed IPv4 - and tries to press `Find IPv4`, there will be an error message displayed that is obtained from the GeoLite2 error response.
 
 When IPv4 data is displayed on screen, when the input changes in any way, the current IPv4 data on screen is cleared out, in preparation for the newly entered IPv4 input.
+
+## Google Maps API
+
+There is an embedded Google Map that displays after retrieving IPv4 data, that shows the surrounding area based on the latitude and longitude parameters.
