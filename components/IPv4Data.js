@@ -2,7 +2,7 @@ import { Box, Card, CardContent, Typography } from '@mui/material';
 
 import Map from 'components/Map';
 
-export default function OutlinedCard({
+export default function IPv4Data({
   city,
   country,
   error,

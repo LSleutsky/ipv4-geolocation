@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { useState } from 'react';
 
+import IPv4Data from 'components/IPv4Data';
 import IPv4Input from 'components/IPv4Input';
-import ListItemData from 'components/ListItemData';
 
 export default function Home() {
   const [validIpv4Address, setValidIpv4Address] = useState('');
@@ -48,7 +48,7 @@ export default function Home() {
         </fieldset>
       </main>
 
-      {showIpv4Data && <ListItemData {...localIpv4Data} />}
+      {showIpv4Data && <IPv4Data {...localIpv4Data} />}
     </>
   );
 }
