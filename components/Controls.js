@@ -85,18 +85,18 @@ export default function Controls({
   return (
     <div className="flex flex-col md:flex-row justify-center mt-8">
       <Button
-        className="bg-blue-200 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded font-medium rounded-lg text-sm px-5 py-4 text-center md:w-44 normal-case"
+        className="bg-blue-200 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded font-medium rounded-lg text-sm px-5 py-3 md:py-5 text-center md:w-2/6 normal-case"
         disabled={disabled}
         label="Find IPv4"
         onClick={getIpData}
       />
       <Button
-        className="bg-green-200 hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded font-medium rounded-lg text-sm px-5 py-4 text-center mt-4 md:mt-0 md:ml-4 md:w-44 normal-case"
+        className="bg-green-200 hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded font-medium rounded-lg text-sm px-5 py-3 md:py-5 text-center mt-4 md:mt-0 md:ml-4 md:w-2/6 normal-case"
         label="My IPv4"
         onClick={getLocalIpData}
       />
       <Button
-        className="bg-red-300 hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded font-medium rounded-lg text-sm px-5 py-4 text-center mt-4 md:mt-0 md:ml-4 md:w-44 normal-case"
+        className="bg-red-300 hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded font-medium rounded-lg text-sm px-5 py-3 md:py-5 text-center mt-4 md:mt-0 md:ml-4 md:w-2/6 normal-case"
         label="Clear"
         onClick={clearIpData}
       />

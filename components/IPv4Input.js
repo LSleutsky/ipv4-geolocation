@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import TextField from '@mui/material/TextField';
+import { TextField } from '@mui/material';
 
 import Controls from 'components/Controls';
 

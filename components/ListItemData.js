@@ -1,7 +1,6 @@
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+import { Box, Card, CardContent, Typography } from '@mui/material';
+
+import Map from 'components/Map';
 
 export default function OutlinedCard({
   city,
@@ -16,40 +15,46 @@ export default function OutlinedCard({
   const divider = city ? '|' : '';
 
   return (
-    <Box sx={{ width: 350, margin: '20px auto' }}>
-      <Card variant="outlined">
-        <CardContent>
-          {ipv4 ? (
-            <>
-              <Typography color="text.secondary" sx={{ fontSize: 14 }}>
-                IPv4
+    <>
+      <Box
+        className="w-11/12"
+        sx={{ margin: '20px auto', 'text-align': 'center' }}
+      >
+        <Card variant="outlined">
+          <CardContent>
+            {ipv4 ? (
+              <>
+                <Typography color="text.secondary" sx={{ fontSize: 18 }}>
+                  IPv4
+                </Typography>
+                <Typography component="div" variant="h4">
+                  {ipv4}
+                </Typography>
+                <Typography color="text.secondary" sx={{ fontSize: 16, mb: 3 }}>
+                  {`${cityState} ${divider} ${country?.toUpperCase()}`}
+                </Typography>
+                <Typography color="text.secondary" sx={{ fontSize: 18 }}>
+                  Latitude
+                </Typography>
+                <Typography component="div" gutterBottom variant="h4">
+                  {latitude}
+                </Typography>
+                <Typography color="text.secondary" sx={{ fontSize: 18 }}>
+                  Longitude
+                </Typography>
+                <Typography component="div" variant="h4">
+                  {longitude}
+                </Typography>
+              </>
+            ) : (
+              <Typography className="text-center" component="div" variant="h5">
+                {error?.error}
               </Typography>
-              <Typography component="div" variant="h5">
-                {ipv4}
-              </Typography>
-              <Typography color="text.secondary" sx={{ fontSize: 14, mb: 3 }}>
-                {`${cityState} ${divider} ${country?.toUpperCase()}`}
-              </Typography>
-              <Typography color="text.secondary" sx={{ fontSize: 14 }}>
-                Latitude
-              </Typography>
-              <Typography component="div" gutterBottom variant="h5">
-                {latitude}
-              </Typography>
-              <Typography color="text.secondary" sx={{ fontSize: 14 }}>
-                Longitude
-              </Typography>
-              <Typography component="div" variant="h5">
-                {longitude}
-              </Typography>
-            </>
-          ) : (
-            <Typography className="text-center" component="div" variant="h5">
-              {error?.error}
-            </Typography>
-          )}
-        </CardContent>
-      </Card>
-    </Box>
+            )}
+          </CardContent>
+        </Card>
+      </Box>
+      <Map />
+    </>
   );
 }
