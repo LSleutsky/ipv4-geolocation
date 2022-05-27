@@ -4,13 +4,33 @@ This is a small web application which allows a user to enter an IPv4 address int
 
 An option to also retrieve data based on the local machine's IPv4 address also exists in the core functionality.
 
-To quickly run the app, run the following commands:
+## Build
+
+Before beginning, clone the repo:
+
+```bash
+git clone git@github.com:LSleutsky/ipv4-geolocation.git
+```
+
+Or if you have the GitHub CLI installed, the repo can be cloned with:
+
+```bash
+gh repo clone LSleutsky/ipv4-geolocation
+```
+
+Now install all dependencies with:
+
+```bash
+yarn install
+```
+
+After successfully installing dependencies, to quickly run the app, run the following commands:
 
 ```bash
 yarn dev
 ```
 
-Alternatively, the app can also be ran with:
+Alternatively, within a _Docker_ environment, the app can also be ran with:
 
 ```bash
 docker-compose up
