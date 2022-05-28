@@ -84,12 +84,16 @@ When IPv4 data is displayed on screen, when the input changes in any way, the cu
 
 ## Google Maps API
 
-There is an embedded Google Map that displays after retrieving IPv4 data, that shows the surrounding area based on the latitude and longitude parameters. There are some props available that change the type of map displayed on screen, as well as the zoom level
+There is a Google Map that displays after retrieving IPv4 data, that shows the surrounding area based on the latitude and longitude parameters. There are some props available that change the location of the map displayed on screen, as well as the zoom level. When the location data for the entered IPv4 is rendered on the map, there is a `Circle` component indicating the location _center_ and the _radius_.
 
-### `mapType`
+### `lat`
 
-The options are either `roadmap` or `satellite` (_which is the default_)
+The latitude coordinates which are sent to the API from the IPv4 retrieval data
+
+### `lng`
+
+The longitude coordinates which are sent to the API from the IPv4 retrieval data
 
 ### `zoom`
 
-A numeric value from `0` to `21` decides on the zoom level of the map. The default value is `15`.
+A numeric value which determines the zoom level of the map. The ideal value to use seems to be `15`.

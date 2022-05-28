@@ -18,7 +18,7 @@ export default function IPv4Data({
     <>
       <Box
         className="w-11/12 md:w-8/12"
-        sx={{ margin: '20px auto', 'text-align': 'center' }}
+        sx={{ margin: '0 auto', textAlign: 'center' }}
       >
         <Card variant="outlined">
           <CardContent>
@@ -58,7 +58,7 @@ export default function IPv4Data({
           </CardContent>
         </Card>
       </Box>
-      {!error && <Map latitude={latitude} longitude={longitude} />}
+      {!error && <Map lat={latitude} lng={longitude} zoom={15} />}
     </>
   );
 }
