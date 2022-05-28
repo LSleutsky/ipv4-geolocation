@@ -26,10 +26,10 @@ export default function Home() {
       <Head>
         <title>IPv4 Geolocation</title>
         <meta
-          name="description"
           content="Retrieve geolocation information for an IPv4 address"
+          name="description"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link href="/favicon.ico" rel="icon" />
       </Head>
 
       <main className="flex flex-col items-center pt-16 pb-8 w-800 m-auto">

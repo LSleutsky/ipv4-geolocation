@@ -9,12 +9,14 @@ const containerStyle = {
 };
 
 export default function Map({ lat, lng, zoom }) {
+  // So the Google map can rerender without error upon new data retrieval
+  const [center, setCenter] = useState({ lat: '', lng: '' });
+
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: appSettings.mapsApiKey,
     id: 'google-map-script'
   });
 
-  const [center, setCenter] = useState({ lat: '', lng: '' });
   const circleOptions = {
     strokeColor: '#FF0000',
     strokeOpacity: 0.8,
@@ -36,8 +38,8 @@ export default function Map({ lat, lng, zoom }) {
     <main className="w-11/12 md:w-8/12 my-4 m-auto pb-6 h-96">
       {isLoaded && (
         <GoogleMap
-          mapContainerStyle={containerStyle}
           center={center}
+          mapContainerStyle={containerStyle}
           zoom={zoom}
         >
           <Circle center={center} options={circleOptions} radius={125} />

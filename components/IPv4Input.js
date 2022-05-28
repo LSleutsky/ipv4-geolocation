@@ -45,11 +45,11 @@ export default function IPv4Input({
     <div className="flex flex-col">
       <TextField
         error={isInvalidIp}
-        id={isInvalidIp ? 'outlined-error' : 'outlined-basic'}
         helperText={isInvalidIp && 'Please enter valid IP'}
+        id={isInvalidIp ? 'outlined-error' : 'outlined-basic'}
         label="Enter IPv4 Address"
-        onChange={allowOnlyIpv4Format}
         onBlur={(evt) => getValidIpv4(evt)}
+        onChange={allowOnlyIpv4Format}
         value={ipv4Format}
         variant="outlined"
       />
