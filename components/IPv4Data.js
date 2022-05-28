@@ -17,7 +17,7 @@ export default function IPv4Data({
   return (
     <>
       <Box
-        className="w-11/12"
+        className="w-11/12 md:w-8/12"
         sx={{ margin: '20px auto', 'text-align': 'center' }}
       >
         <Card variant="outlined">

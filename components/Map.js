@@ -8,7 +8,7 @@ export default function Map({
 }) {
   return (
     <iframe
-      className="w-11/12 pb-16"
+      className="w-11/12 md:w-8/12 pb-16"
       allowFullScreen
       height="600"
       referrerpolicy="no-referrer-when-downgrade"
