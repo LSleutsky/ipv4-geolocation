@@ -8,6 +8,8 @@ import { validateIp } from 'utils/validate';
 
 export default function IPv4Input({
   getIpv4Data,
+  getIsLocalIpv4,
+  getTimeData,
   getValidIpv4Address,
   showIpData,
   validIpv4Address
@@ -45,7 +47,7 @@ export default function IPv4Input({
     <div className="flex flex-col">
       <TextField
         error={isInvalidIp}
-        helperText={isInvalidIp && 'Please enter valid IP'}
+        helperText={isInvalidIp && 'Please enter a valid IPv4 Address'}
         id={isInvalidIp ? 'outlined-error' : 'outlined-basic'}
         label="Enter IPv4 Address"
         onBlur={(evt) => getValidIpv4(evt)}
@@ -56,6 +58,8 @@ export default function IPv4Input({
       <Controls
         disabled={isInvalidIp || !ipv4Format}
         getIpv4Data={getIpv4Data}
+        getIsLocalIpv4={getIsLocalIpv4}
+        getTimeData={getTimeData}
         setInputValue={setInputValue}
         showIpData={showIpData}
         validIpv4Address={validIpv4Address}

@@ -5,21 +5,17 @@ import IPv4Data from 'components/IPv4Data';
 import IPv4Input from 'components/IPv4Input';
 
 export default function Home() {
-  const [validIpv4Address, setValidIpv4Address] = useState('');
-  const [localIpv4Data, setIpv4Data] = useState('');
+  const [isLocalIpv4, setIsLocalIpv4] = useState(false);
+  const [localIpv4Data, setIpv4Data] = useState({});
   const [showIpv4Data, setShowIpv4Data] = useState(false);
+  const [timeData, setTimeData] = useState({});
+  const [validIpv4Address, setValidIpv4Address] = useState('');
 
-  const getIpv4Data = (localIpv4) => {
-    setIpv4Data(localIpv4);
-  };
-
-  const getValidIpv4Address = (ipv4) => {
-    setValidIpv4Address(ipv4);
-  };
-
-  const showIpData = (show) => {
-    setShowIpv4Data(show);
-  };
+  const getIpv4Data = (ipv4Data) => setIpv4Data(ipv4Data);
+  const getTimeData = (timeData) => setTimeData(timeData);
+  const getValidIpv4Address = (ipv4) => setValidIpv4Address(ipv4);
+  const getIsLocalIpv4 = (isLocal) => setIsLocalIpv4(isLocal);
+  const showIpData = (show) => setShowIpv4Data(show);
 
   return (
     <>
@@ -40,6 +36,8 @@ export default function Home() {
           <section className="my-10 m-auto w-4/5">
             <IPv4Input
               getIpv4Data={getIpv4Data}
+              getIsLocalIpv4={getIsLocalIpv4}
+              getTimeData={getTimeData}
               getValidIpv4Address={getValidIpv4Address}
               showIpData={showIpData}
               validIpv4Address={validIpv4Address}
@@ -48,7 +46,13 @@ export default function Home() {
         </fieldset>
       </main>
 
-      {showIpv4Data && <IPv4Data {...localIpv4Data} />}
+      {showIpv4Data && (
+        <IPv4Data
+          {...localIpv4Data}
+          isLocalIpv4={isLocalIpv4}
+          timeData={timeData}
+        />
+      )}
     </>
   );
 }

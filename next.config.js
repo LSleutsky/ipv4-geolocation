@@ -15,14 +15,14 @@ const nextConfig = {
 
     return config;
   },
-  webpackDevMiddleware: config => {
+  webpackDevMiddleware: (config) => {
     // Enables hot reload for Docker
     config.watchOptions = {
       poll: 1000,
       aggregateTimeout: 300
-    }
+    };
 
-    return config
+    return config;
   }
 };
 

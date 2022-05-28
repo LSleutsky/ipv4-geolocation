@@ -3,11 +3,95 @@ import Button from 'components/Button';
 export default function Controls({
   disabled,
   getIpv4Data,
+  getIsLocalIpv4,
+  getTimeData,
   setInputValue,
   showIpData,
   validIpv4Address
 }) {
-  const retrievedIpv4Data = (data) => {
+  const clearIpData = () => {
+    setInputValue('');
+    showIpData(false);
+  };
+
+  /**
+   * Fetches data in parallel from the GeoLite2 API and the World Time API
+   *
+   * @param {string} validIpv4Address The IPv4 address in the allowable format
+   *
+   * @returns {array} Resolved promise array for GeoLite2 and World Time API responses
+   */
+  const geolocationDatetimeApi = (validIpv4Address) => {
+    const geolocationApi = fetch('api/geolocation', {
+      method: 'POST',
+      body: JSON.stringify({ validIpv4Address }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const worldTimeApi = fetch(
+      `http://worldtimeapi.org/api/ip/${validIpv4Address}`
+    );
+
+    return Promise.all([
+      geolocationApi.then((response) => response.json()),
+      worldTimeApi.then((response) => response.json())
+    ]);
+  };
+
+  /**
+   * Retrieves and returns user-entered IPv4 data
+   */
+  const getIpData = async () => {
+    try {
+      if (validIpv4Address) {
+        const [{ data, error }, timeData] = await geolocationDatetimeApi(
+          validIpv4Address
+        );
+
+        const ipv4Data = setRetrievedIpv4Data(data) ?? { error };
+
+        getIpv4Data(ipv4Data);
+        getIsLocalIpv4(false);
+        getTimeData(timeData);
+        showIpData(!!ipv4Data);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  /**
+   * Retrieves and returns IPv4 data from the local machine
+   */
+  const getLocalIpData = async () => {
+    try {
+      const {
+        data: { ipAddress }
+      } = await fetch('api/myip').then((response) => response.json());
+
+      const [{ data }, timeData] = await geolocationDatetimeApi(ipAddress);
+      const localIpv4Data = setRetrievedIpv4Data(data);
+
+      getIpv4Data(localIpv4Data);
+      getIsLocalIpv4(true);
+      getTimeData(timeData);
+      setInputValue('');
+      showIpData(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  /**
+   * Returns an object with the desired key-value pairs plucked from the API response
+   *
+   * @param {object} data The data object being returned
+   *
+   * @returns {object} GeoLite2 data based on an IPv4 address
+   */
+  const setRetrievedIpv4Data = (data) => {
     if (!data) {
       return null;
     }
@@ -20,66 +104,6 @@ export default function Controls({
       latitude: data.location.latitude,
       longitude: data.location.longitude
     };
-  };
-
-  const clearIpData = () => {
-    setInputValue('');
-    showIpData(false);
-  };
-
-  /**
-   * Retrieves and returns entered IPv4 data
-   *
-   * @returns {Object} GeoLite2 data based on the provided IPv4
-   */
-  const getIpData = async () => {
-    try {
-      if (validIpv4Address) {
-        const { data, error } = await fetch('api/geolocation', {
-          method: 'POST',
-          body: JSON.stringify({ validIpv4Address }),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }).then((response) => response.json());
-
-        const ipv4Data = retrievedIpv4Data(data) ?? { error };
-
-        getIpv4Data(ipv4Data);
-        showIpData(!!ipv4Data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  /**
-   * Retrieves and returns IPv4 data from local machine
-   *
-   * @returns {Object} Data points based on local IPv4
-   */
-  const getLocalIpData = async () => {
-    try {
-      const { data } = await fetch('api/myip').then((response) =>
-        response.json()
-      );
-
-      const { data: localData } = await fetch('api/geolocation', {
-        method: 'POST',
-        body: JSON.stringify({ validIpv4Address: data.ipAddress }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then((response) => response.json());
-
-      const localIpv4Data = retrievedIpv4Data(localData);
-
-      setInputValue('');
-      getIpv4Data(localIpv4Data);
-      showIpData(true);
-    } catch (error) {
-      console.error(error);
-    }
   };
 
   return (
