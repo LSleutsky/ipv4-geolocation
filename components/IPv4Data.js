@@ -11,8 +11,8 @@ export default function IPv4Data({
   longitude,
   state
 }) {
-  const cityState = city ? `${city}, ${state}` : ``;
-  const divider = city ? '|' : '';
+  const cityState = city ? `${city}, ${state}` : '';
+  const countryName = country ? country.toUpperCase() : '';
 
   return (
     <>
@@ -30,10 +30,14 @@ export default function IPv4Data({
                 <Typography component="div" variant="h4">
                   {ipv4}
                 </Typography>
-                <Typography color="text.secondary" sx={{ fontSize: 16, mb: 3 }}>
-                  {`${cityState} ${divider} ${country?.toUpperCase()}`}
+                <Typography color="text.secondary" sx={{ fontSize: 15, mt: 1 }}>
+                  {cityState}
                 </Typography>
-                <Typography color="text.secondary" sx={{ fontSize: 18 }}>
+                <Typography color="text.secondary" sx={{ fontSize: 15, mb: 3 }}>
+                  {countryName}
+                </Typography>
+                <hr className="w-1/2 m-auto" />
+                <Typography color="text.secondary" sx={{ fontSize: 18, mt: 3 }}>
                   Latitude
                 </Typography>
                 <Typography component="div" gutterBottom variant="h4">

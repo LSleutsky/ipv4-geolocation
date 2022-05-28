@@ -1,4 +1,4 @@
-import { mapsApiKey } from 'config';
+import appSettings from 'config';
 
 export default function Map({
   latitude,
@@ -8,13 +8,12 @@ export default function Map({
 }) {
   return (
     <iframe
-      className="w-11/12 md:w-8/12 pb-16"
       allowFullScreen
+      className="w-11/12 md:w-8/12 pb-16 m-auto"
       height="600"
       referrerpolicy="no-referrer-when-downgrade"
-      style={{ margin: '0 auto' }}
-      src={`https://www.google.com/maps/embed/v1/view?key=${mapsApiKey}
+      src={`https://www.google.com/maps/embed/v1/view?key=${appSettings.mapsApiKey}
     &center=${latitude},${longitude}&zoom=${zoom}&maptype=${mapType}`}
-    ></iframe>
+    />
   );
 }

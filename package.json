@@ -1,6 +1,11 @@
 {
   "name": "ipv4-geolocation",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "A web app which displays IPv4 data with a Google map",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LSleutsky/ipv4-geolocation"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
