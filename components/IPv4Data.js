@@ -17,20 +17,23 @@ export default function IPv4Data({
   state,
   timeData
 }) {
-  const cityState = city ? `${city}, ${state} | ` : '';
+  const cityState = city ? `${city}, ${state}` : '';
   const countryName = country ? country.toUpperCase() : '';
   // Extract datetime data as ISO string to pass into dayjs for allowable format
   const datetime = timeData?.datetime?.split('.')[0];
   const currentLocationDateTime = dayjs(datetime).format('LLLL');
+  const cardClass = ipv4 ? `md:h-96` : '';
   const cardContentClass = ipv4 ? `md:w-4/12 md:mr-0` : `md:w-8/12`;
 
   return (
     <main className="flex flex-col md:flex-row m-auto mb-4">
       <Box
-        className={`w-11/12 mb-2 ${cardContentClass}`}
+        className={`w-11/12 ${cardContentClass}`}
         sx={{ margin: '0 auto', textAlign: 'center' }}
       >
-        <Card variant="outlined">
+        <Card
+          className={`bg-neutral-100 shadow-none mb-2 md:mr-2 ${cardClass}`}
+        >
           <CardContent>
             {ipv4 ? (
               <>
@@ -41,7 +44,10 @@ export default function IPv4Data({
                   {ipv4}
                 </Typography>
                 <Typography color="text.secondary" sx={{ fontSize: 15 }}>
-                  {`${cityState} ${countryName}`}
+                  {cityState}
+                </Typography>
+                <Typography color="text.secondary" sx={{ fontSize: 15 }}>
+                  {countryName}
                 </Typography>
                 <Typography
                   color="text.secondary"
