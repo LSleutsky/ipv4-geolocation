@@ -1,6 +1,6 @@
 # IPv4 Geolocation
 
-This is a small web application which allows a user to enter an IPv4 address into an input, and retrieve location information based on [Maxmind's GeoLite2](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) service.
+This is a Next.js web application which allows a user to enter an IPv4 address into an input, and retrieve location information based on [Maxmind's GeoLite2](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) service.
 
 An option to also retrieve data based on the local machine's IPv4 address also exists in the core functionality.
 
