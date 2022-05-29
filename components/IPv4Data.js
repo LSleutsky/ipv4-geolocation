@@ -17,17 +17,17 @@ export default function IPv4Data({
   state,
   timeData
 }) {
-  const cityState = city ? `${city}, ${state}` : '';
+  const cityState = city ? `${city}, ${state} | ` : '';
   const countryName = country ? country.toUpperCase() : '';
   // Extract datetime data as ISO string to pass into dayjs for allowable format
   const datetime = timeData?.datetime?.split('.')[0];
   const currentLocationDateTime = dayjs(datetime).format('LLLL');
+  const cardContentClass = ipv4 ? `md:w-4/12 md:mr-0` : `md:w-8/12`;
 
   return (
-    <>
-      {!error && <Map lat={latitude} lng={longitude} zoom={15} />}
+    <main className="flex flex-col md:flex-row m-auto mb-4">
       <Box
-        className="w-11/12 md:w-8/12 mb-10"
+        className={`w-11/12 mb-2 ${cardContentClass}`}
         sx={{ margin: '0 auto', textAlign: 'center' }}
       >
         <Card variant="outlined">
@@ -40,23 +40,20 @@ export default function IPv4Data({
                 <Typography component="div" variant="h4">
                   {ipv4}
                 </Typography>
-                <Typography color="text.secondary" sx={{ fontSize: 15, mt: 1 }}>
-                  {cityState}
+                <Typography color="text.secondary" sx={{ fontSize: 15 }}>
+                  {`${cityState} ${countryName}`}
                 </Typography>
                 <Typography
                   color="text.secondary"
-                  sx={{ fontSize: 15, mb: 1.5 }}
+                  sx={{ fontSize: 15, mb: 3, mt: 2 }}
                 >
-                  {countryName}
-                </Typography>
-                <Typography color="text.secondary" sx={{ fontSize: 15, mb: 3 }}>
                   {currentLocationDateTime}
                 </Typography>
                 <hr className="w-1/2 m-auto" />
                 <Typography color="text.secondary" sx={{ fontSize: 18, mt: 3 }}>
                   Latitude
                 </Typography>
-                <Typography component="div" gutterBottom variant="h4">
+                <Typography component="div" variant="h4">
                   {latitude}
                 </Typography>
                 <Typography color="text.secondary" sx={{ fontSize: 18 }}>
@@ -74,6 +71,7 @@ export default function IPv4Data({
           </CardContent>
         </Card>
       </Box>
-    </>
+      {!error && <Map lat={latitude} lng={longitude} zoom={15} />}
+    </main>
   );
 }

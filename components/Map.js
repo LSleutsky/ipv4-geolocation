@@ -35,7 +35,7 @@ export default function Map({ lat, lng, zoom }) {
   }, [lat, lng]);
 
   return (
-    <main className="w-11/12 md:w-8/12 my-4 m-auto pb-6 h-96">
+    <main className="w-11/12 h-96 m-auto mt-0 md:w-4/12 md:ml-0">
       {isLoaded && (
         <GoogleMap
           center={center}

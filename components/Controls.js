@@ -52,6 +52,8 @@ export default function Controls({
 
         const ipv4Data = setRetrievedIpv4Data(data) ?? { error };
 
+        console.info(data);
+
         getIpv4Data(ipv4Data);
         getIsLocalIpv4(false);
         getTimeData(timeData);

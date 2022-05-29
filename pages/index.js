@@ -28,7 +28,7 @@ export default function Home() {
         <link href="/favicon.ico" rel="icon" />
       </Head>
 
-      <main className="flex flex-col items-center pt-16 pb-8 w-800 m-auto">
+      <main className="flex flex-col items-center pt-16 pb-4 w-800 m-auto">
         <fieldset className="border-4 border-solid border-sky-500 w-11/12 md:w-8/12">
           <legend className="text-xl md:text-2xl text-slate-500 font-bold ml-3 md:ml-10 px-2">
             IPv4 Geolocation
