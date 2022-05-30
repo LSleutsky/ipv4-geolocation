@@ -96,6 +96,10 @@ If a user enters a reserved IPv4 address - or any other not allowed IPv4 - and t
 
 When IPv4 data is displayed on screen, when the input changes in any way, the current IPv4 data on screen is cleared out, in preparation for the newly entered IPv4 input.
 
+If an entered IPv4 address returns a response with no city name, then the country of origin as well as the continent will be displayed in the data card. If a city is returned in the data response, then the city name and the country will be displayed.
+
+There will also be the time zone and the UTC offset time for the location shown in the data card.
+
 ## Google Maps API
 
 There is a Google Map that displays after retrieving IPv4 data, that shows the surrounding area based on the latitude and longitude parameters. There are some props available that change the location of the map displayed on screen, as well as the zoom level. When the location data for the entered IPv4 is rendered on the map, there is a `Circle` component indicating the location _center_ and the _radius_.
