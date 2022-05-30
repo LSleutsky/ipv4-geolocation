@@ -8,6 +8,7 @@ dayjs.extend(localizedFormat);
 
 export default function IPv4Data({
   city,
+  continent,
   country,
   error: { error } = {},
   ipv4,
@@ -18,10 +19,12 @@ export default function IPv4Data({
   timeData
 }) {
   const cityState = city ? `${city}, ${state}` : '';
-  const countryName = country ? country.toUpperCase() : '';
+  const countryName = city && country ? country.toUpperCase() : country;
   // Extract datetime data as ISO string to pass into dayjs for allowable format
   const datetime = timeData?.datetime?.split('.')[0];
   const currentLocationDateTime = dayjs(datetime).format('LLLL');
+  const timezone = timeData?.timezone;
+  const utcOffset = timeData?.utc_offset;
   const cardClass = ipv4 ? `md:h-96` : 'h-fit';
   const cardContentClass = ipv4 ? `md:w-4/12 md:mr-0` : `md:w-8/12`;
 
@@ -49,14 +52,19 @@ export default function IPv4Data({
                 <Typography color="text.secondary" sx={{ fontSize: 15 }}>
                   {countryName}
                 </Typography>
-                <Typography
-                  color="text.secondary"
-                  sx={{ fontSize: 15, mb: 3, mt: 2 }}
-                >
+                {!city && (
+                  <Typography color="text.secondary" sx={{ fontSize: 15 }}>
+                    {continent.toUpperCase()}
+                  </Typography>
+                )}
+                <Typography color="text.secondary" sx={{ fontSize: 15, mt: 2 }}>
                   {currentLocationDateTime}
                 </Typography>
+                <Typography color="text.secondary" sx={{ fontSize: 15, mb: 3 }}>
+                  {`${timezone} (GMT ${utcOffset})`}
+                </Typography>
                 <hr className="w-1/2 m-auto" />
-                <Typography color="text.secondary" sx={{ fontSize: 18, mt: 3 }}>
+                <Typography color="text.secondary" sx={{ fontSize: 18, mt: 2 }}>
                   Latitude
                 </Typography>
                 <Typography component="div" variant="h4">

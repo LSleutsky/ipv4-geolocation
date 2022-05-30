@@ -95,8 +95,9 @@ export default function Controls({
 
     return {
       ipv4: data.traits.ipAddress,
-      city: data?.city?.names?.en,
-      state: data?.subdivisions?.[0]?.names?.en,
+      city: data?.city?.names.en,
+      continent: data?.continent?.names.en,
+      state: data?.subdivisions?.[0].names.en,
       country: data.country.names.en,
       latitude: data.location.latitude,
       longitude: data.location.longitude
