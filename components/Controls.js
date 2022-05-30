@@ -72,7 +72,7 @@ export default function Controls({
       const [{ data }, timeData] = await geolocationDatetimeApi(ipAddress);
       const localIpv4Data = setRetrievedIpv4Data(data);
 
-      getIpv4Data(localIpv4Data, true);
+      getIpv4Data(localIpv4Data);
       getTimeData(timeData);
       setInputValue('');
       showIpData(true);

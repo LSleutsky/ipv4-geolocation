@@ -12,14 +12,12 @@ export default function IPv4Data({
   country,
   error: { error } = {},
   ipv4,
-  isLocalIpv4,
   latitude,
   longitude,
   state,
   timeData
 }) {
   const cityState = city ? `${city}, ${state}` : '';
-  const countryName = city && country ? country.toUpperCase() : country;
   // Extract datetime data as ISO string to pass into dayjs for allowable format
   const datetime = timeData?.datetime?.split('.')[0];
   const currentLocationDateTime = dayjs(datetime).format('LLLL');
@@ -40,31 +38,32 @@ export default function IPv4Data({
           <CardContent>
             {ipv4 ? (
               <>
-                <Typography color="text.secondary" sx={{ fontSize: 18 }}>
-                  {isLocalIpv4 ? 'Local IPv4' : 'IPv4'}
+                <Typography color="text.secondary" sx={{ fontSize: 15 }}>
+                  {cityState}
                 </Typography>
                 <Typography component="div" variant="h4">
                   {ipv4}
                 </Typography>
                 <Typography color="text.secondary" sx={{ fontSize: 15 }}>
-                  {cityState}
+                  {country}
                 </Typography>
                 <Typography color="text.secondary" sx={{ fontSize: 15 }}>
-                  {countryName}
+                  {continent.toUpperCase()}
                 </Typography>
-                {!city && (
-                  <Typography color="text.secondary" sx={{ fontSize: 15 }}>
-                    {continent.toUpperCase()}
-                  </Typography>
-                )}
                 <Typography color="text.secondary" sx={{ fontSize: 15, mt: 2 }}>
                   {currentLocationDateTime}
                 </Typography>
-                <Typography color="text.secondary" sx={{ fontSize: 15, mb: 3 }}>
+                <Typography
+                  color="text.secondary"
+                  sx={{ fontSize: 15, mb: city ? 2 : 3 }}
+                >
                   {`${timezone} (GMT ${utcOffset})`}
                 </Typography>
                 <hr className="w-1/2 m-auto" />
-                <Typography color="text.secondary" sx={{ fontSize: 18, mt: 2 }}>
+                <Typography
+                  color="text.secondary"
+                  sx={{ fontSize: 18, mt: city ? 2 : 3 }}
+                >
                   Latitude
                 </Typography>
                 <Typography component="div" variant="h4">
