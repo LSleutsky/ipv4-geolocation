@@ -8,7 +8,6 @@ import { validateIp } from 'utils/validate';
 
 export default function IPv4Input({
   getIpv4Data,
-  getIsLocalIpv4,
   getTimeData,
   getValidIpv4Address,
   showIpData,
@@ -58,7 +57,6 @@ export default function IPv4Input({
       <Controls
         disabled={isInvalidIp || !ipv4Format}
         getIpv4Data={getIpv4Data}
-        getIsLocalIpv4={getIsLocalIpv4}
         getTimeData={getTimeData}
         setInputValue={setInputValue}
         showIpData={showIpData}

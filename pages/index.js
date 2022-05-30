@@ -11,10 +11,13 @@ export default function Home() {
   const [timeData, setTimeData] = useState({});
   const [validIpv4Address, setValidIpv4Address] = useState('');
 
-  const getIpv4Data = (ipv4Data) => setIpv4Data(ipv4Data);
+  const getIpv4Data = (ipv4Data, isLocal) => {
+    setIpv4Data(ipv4Data);
+    setIsLocalIpv4(isLocal);
+  };
+
   const getTimeData = (timeData) => setTimeData(timeData);
   const getValidIpv4Address = (ipv4) => setValidIpv4Address(ipv4);
-  const getIsLocalIpv4 = (isLocal) => setIsLocalIpv4(isLocal);
   const showIpData = (show) => setShowIpv4Data(show);
 
   return (
@@ -36,7 +39,6 @@ export default function Home() {
           <section className="my-10 m-auto w-4/5">
             <IPv4Input
               getIpv4Data={getIpv4Data}
-              getIsLocalIpv4={getIsLocalIpv4}
               getTimeData={getTimeData}
               getValidIpv4Address={getValidIpv4Address}
               showIpData={showIpData}

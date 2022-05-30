@@ -3,7 +3,6 @@ import Button from 'components/Button';
 export default function Controls({
   disabled,
   getIpv4Data,
-  getIsLocalIpv4,
   getTimeData,
   setInputValue,
   showIpData,
@@ -53,7 +52,6 @@ export default function Controls({
         const ipv4Data = setRetrievedIpv4Data(data) ?? { error };
 
         getIpv4Data(ipv4Data);
-        getIsLocalIpv4(false);
         getTimeData(timeData);
         showIpData(!!ipv4Data);
       }
@@ -74,8 +72,7 @@ export default function Controls({
       const [{ data }, timeData] = await geolocationDatetimeApi(ipAddress);
       const localIpv4Data = setRetrievedIpv4Data(data);
 
-      getIpv4Data(localIpv4Data);
-      getIsLocalIpv4(true);
+      getIpv4Data(localIpv4Data, true);
       getTimeData(timeData);
       setInputValue('');
       showIpData(true);
