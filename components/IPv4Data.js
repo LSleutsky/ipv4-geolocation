@@ -22,7 +22,7 @@ export default function IPv4Data({
   // Extract datetime data as ISO string to pass into dayjs for allowable format
   const datetime = timeData?.datetime?.split('.')[0];
   const currentLocationDateTime = dayjs(datetime).format('LLLL');
-  const cardClass = ipv4 ? `md:h-96` : '';
+  const cardClass = ipv4 ? `md:h-96` : 'h-fit';
   const cardContentClass = ipv4 ? `md:w-4/12 md:mr-0` : `md:w-8/12`;
 
   return (
@@ -32,7 +32,7 @@ export default function IPv4Data({
         sx={{ margin: '0 auto', textAlign: 'center' }}
       >
         <Card
-          className={`bg-neutral-100 shadow-none mb-2 md:mr-2 ${cardClass}`}
+          className={`bg-neutral-100 shadow-none rounded-none mb-2 md:mr-2 ${cardClass}`}
         >
           <CardContent>
             {ipv4 ? (

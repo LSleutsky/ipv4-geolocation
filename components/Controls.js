@@ -52,15 +52,13 @@ export default function Controls({
 
         const ipv4Data = setRetrievedIpv4Data(data) ?? { error };
 
-        console.info(data);
-
         getIpv4Data(ipv4Data);
         getIsLocalIpv4(false);
         getTimeData(timeData);
         showIpData(!!ipv4Data);
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
     }
   };
 

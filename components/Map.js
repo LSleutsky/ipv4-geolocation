@@ -18,14 +18,14 @@ export default function Map({ lat, lng, zoom }) {
   });
 
   const circleOptions = {
-    strokeColor: '#FF0000',
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: '#FAA0A0',
-    fillOpacity: 0.35,
     clickable: false,
     draggable: false,
     editable: false,
+    fillColor: '#FAA0A0',
+    fillOpacity: 0.35,
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
     visible: true,
     zIndex: 1
   };

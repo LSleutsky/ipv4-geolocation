@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
+    // Ensure all commands run in Dockerfile
     outputStandalone: true
   },
   reactStrictMode: true,

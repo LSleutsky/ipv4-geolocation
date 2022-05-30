@@ -27,31 +27,19 @@ yarn install
 After successfully installing dependencies, to quickly run the app, run the following commands:
 
 ```bash
-yarn dev
+yarn start:local
 ```
 
-Alternatively, within a _Docker_ environment, the app can also be ran with:
+The above command creates and runs a _Docker_ container, and is equivalent to running the below command in a shell instance:
 
 ```bash
 docker-compose up
 ```
 
-If using V2 of _Docker Compose_, then the following command can be ran:
+To stop and remove containers (_and all dangling volumes associated to the container_), run the following command:
 
 ```bash
-docker compose up
-```
-
-To stop the currently running _Docker_ instance, run the following command:
-
-```bash
-docker-compose stop
-```
-
-And likewise if using V2 of _Docker Compose_, then run:
-
-```bash
-docker compose stop
+docker-compose down -v
 ```
 
 ## `Enter IPv4 Address`

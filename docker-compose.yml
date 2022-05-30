@@ -1,11 +1,11 @@
-version: "3"
+version: "3.9"
 
 services:
   web:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: web
+    container_name: tracker
     restart: always
     volumes:
       - ./:/app
