@@ -1,6 +1,6 @@
 # IPv4 Geolocation
 
-This is a Next.js web application which allows a user to enter an IPv4 address into an input, and retrieve location information based on [Maxmind's GeoLite2](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) service.
+This is a [Next.js](nextjs.org/) web application - leveraging [TailwindCSS](https://tailwindcss.com/) - which allows a user to enter an IPv4 address into an input, and retrieve location information based on [Maxmind's GeoLite2](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) service.
 
 An option to also retrieve data based on the local machine's IPv4 address also exists in the core functionality.
 
@@ -53,7 +53,7 @@ docker-compose down -v
 
 ### Docker Compose V2
 
-If the option `Use Docker Compose V2` is enabled in _Docker Desktop_, then the above _Docker Compose_ commands can be ran with the below syntax:
+If running manually on a local machine with _Docker Desktop_, and the option `Use Docker Compose V2` is enabled in settings, then the above _Docker Compose_ commands can be ran with the below syntax:
 
 ```bash
 docker compose up
