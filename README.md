@@ -29,7 +29,7 @@ This will allow you to visit [http://localhost:3000](http://localhost:3000) to i
 
 ## Docker
 
-For easier local development, the below script runs a _Docker_ instance by creating and building an image of the app and starting a container:
+If _Docker_ is installed on the local machine where this repo is cloned, then for easier local development, the below script handles everything for you to get up and running:
 
 ```bash
 yarn start:local
