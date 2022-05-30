@@ -29,7 +29,7 @@ This will allow you to visit [http://localhost:3000](http://localhost:3000) to i
 
 ## Docker
 
-For easier local development, the below script runs a _Docker_ instance of the app, by creating and starting a container:
+For easier local development, the below script runs a _Docker_ instance by creating and building an image of the app and starting a container:
 
 ```bash
 yarn start:local
@@ -38,10 +38,12 @@ yarn start:local
 The above script is equivalent to running the below command in a command shell:
 
 ```bash
-docker-compose up --build
+docker-compose up
 ```
 
-To stop and remove containers (_and all dangling volumes associated to the container_), run the following command:
+You can now visit [http://localhost:3000](http://localhost:3000) to interact with the app.
+
+Though not specifically related to running - or using - the app, but for historical purposes, if needing to stop and remove containers (_and all dangling volumes associated to the container_), run the following shell command:
 
 ```bash
 docker-compose down -v

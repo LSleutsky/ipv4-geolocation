@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    // Ensure all commands run in Dockerfile
-    outputStandalone: true
-  },
   reactStrictMode: true,
   webpack: (config, { isServer }) => {
     // Fixes console error for @maxmind/geoip2-node for `fs` and `net` module not found
@@ -19,8 +15,8 @@ const nextConfig = {
   webpackDevMiddleware: (config) => {
     // Enables hot reload for Docker
     config.watchOptions = {
-      poll: 1000,
-      aggregateTimeout: 300
+      aggregateTimeout: 300,
+      poll: 1000
     };
 
     return config;
