@@ -18,18 +18,18 @@ Or if you have the GitHub CLI installed, the repo can be cloned with:
 gh repo clone LSleutsky/ipv4-geolocation
 ```
 
-To run the app in standard fashion, run the below commands in order:
+To run the app in typical fashion, the below commands can be run (_in order_):
 
 ```bash
 yarn install
 yarn dev
 ```
 
-This will allow you to visit [http://localhost:3000](http://localhost:3000) to interact with the app.
+This will allow you to visit [http://localhost:3000](http://localhost:3000) to run the development version of the app.
 
 ## Docker
 
-If _Docker_ is installed on the local machine where this repo is cloned, then for easier local development, the below script handles everything for you to get up and running:
+If _Docker_ is installed on the local machine where this repo is cloned, then for easier local development (_and the recommended way_), the below script handles everything for you to get up and running:
 
 ```bash
 yarn start:local
@@ -49,25 +49,31 @@ Though not specifically related to running - or using - the app, but for histori
 docker-compose down -v
 ```
 
-## `Enter IPv4 Address`
+## Interactivity
 
-This input allows a user to enter an IPv4 address. The input field is blocked from entering characters that are not of an IPv4 format (_i.e 111.222.3.4_).
+The below information describes the rendered UI elements and how to interact with them.
 
-If there is focus on the input field, and no value is entered, or an incorrect format is entered, then there will be an error on removing focus from the input field. The input field will have a red outline and there will be an error message displayed asking the user to enter a valid IPv4 address
+### `Enter IPv4 Address`
 
-## `Find IPv4`
+This input allows a user to enter an IPv4 address. The input field is blocked from entering characters that are not of an IPv4 format (_i.e 111.222.3.4_), which are valid integers from _0 to 9_, as well as the `.` symbol.
 
-On initial load, this button is disabled because there is no value entered in the IPv4 input field. The button will remain disabled until entered value matches the IPv4 format mentioned above. If a correct IPv4 address is entered, the button becomes enabled, and clicking it will retrieve the pertinent data for the IPv4 address currently in the input field.
+If there is focus on the input field, and no value is entered, or an incorrect format is entered, then there will be an error on removing focus from the input field. The input field will have a red outline and there will be an error message displayed asking the user to enter a valid IPv4 address. Likewise, if the input has focus, and that focus is then removed, the same error functionality will exist, until a valid IPv4 address is entered.
 
-If a valid IPv4 address value is entered in the text box, if deleting characters results in the format to be invalid, the `Find IPv4` button becomes disabled again, and will be re-enabled as the proper format is provided.
+### `Find IPv4`
 
-## `My IPv4`
+On initial load, this button is disabled because there is no value entered in the IPv4 input field. The button will remain disabled until the entered value matches the IPv4 format mentioned above. If a correct IPv4 address is entered, the button then becomes enabled, and clicking it will retrieve the pertinent data for the IPv4 address currently in the input field.
 
-This button is always enabled, and can be used to retrieve the pertinent data for the local machine's IPv4 address.
+If a valid IPv4 address value is entered in the text box, and deleting characters results in the format to be invalid, the `Find IPv4` button becomes disabled again, and will be re-enabled as the proper format is provided.
 
-## `Clear`
+### `My IPv4`
 
-This button clears the content that is returned and rendered on screen based on the retrieval of an arbitrary IPv4 address, or the local machine's IPv4 address, and also clears the input field. This also now disables the `Find IPv4` button, since there is no longer a value in the input field.
+This button is always enabled, and can be used to retrieve the necessary data for the local machine's IPv4 address.
+
+### `Clear`
+
+This button clears the content that is returned and rendered on screen (_the previously entered IPv4 address or the local machine's IPv4 address, the corresponding UI data, as well as the Google map_), and also clears the input field. This also now disables the `Find IPv4` button, since there is no longer a value in the input field.
+
+If no data is retrieved for an IPv4 address (_usually when the IPv4 address is a reserved one_), this button will clear the input field value, and the error content UI.
 
 ## General
 
