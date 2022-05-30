@@ -35,6 +35,8 @@ If _Docker_ is installed on the local machine where this repo is cloned, then fo
 yarn start:local
 ```
 
+### Docker Compose
+
 The above script is equivalent to running the below command in a command shell:
 
 ```bash
@@ -48,6 +50,17 @@ Though not specifically related to running - or using - the app, but for histori
 ```bash
 docker-compose down -v
 ```
+
+### Docker Compose V2
+
+If the option `Use Docker Compose V2` is enabled in _Docker Desktop_, then the above _Docker Compose_ commands can be ran with the below syntax:
+
+```bash
+docker compose up
+docker compose down
+```
+
+If utilizing the _Docker Compose_ `yarn start:local` script, however, that is reliant on the `docker-compose` syntax, to account for _Docker Desktop_ being on the default _Docker Compose_ version.
 
 ## Interactivity
 
