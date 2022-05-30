@@ -11,7 +11,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "start:local": "docker-compose up",
+    "start:local": "docker-compose up --build",
     "lint": "next lint"
   },
   "dependencies": {

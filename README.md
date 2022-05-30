@@ -18,22 +18,27 @@ Or if you have the GitHub CLI installed, the repo can be cloned with:
 gh repo clone LSleutsky/ipv4-geolocation
 ```
 
-Now install all dependencies with:
+To run the app in standard fashion, run the below commands in order:
 
 ```bash
 yarn install
+yarn dev
 ```
 
-After successfully installing dependencies, to quickly run the app, run the following commands:
+This will allow you to visit [http://localhost:3000](http://localhost:3000) to interact with the app.
+
+## Docker
+
+For easier local development, the below script runs a _Docker_ instance of the app, by creating and starting a container:
 
 ```bash
 yarn start:local
 ```
 
-The above command creates and runs a _Docker_ container, and is equivalent to running the below command in a shell instance:
+The above script is equivalent to running the below command in a command shell:
 
 ```bash
-docker-compose up
+docker-compose up --build
 ```
 
 To stop and remove containers (_and all dangling volumes associated to the container_), run the following command:
