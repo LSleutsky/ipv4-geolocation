@@ -35,8 +35,8 @@ export default function Map({ lat, lng, zoom }) {
   }, [lat, lng]);
 
   return (
-    <main className="w-11/12 h-96 m-auto mt-0 md:w-4/12 md:ml-0">
-      {isLoaded && (
+    isLoaded && (
+      <main className="w-11/12 h-96 m-auto mt-0 md:w-4/12 md:ml-0">
         <GoogleMap
           center={center}
           mapContainerStyle={containerStyle}
@@ -44,7 +44,7 @@ export default function Map({ lat, lng, zoom }) {
         >
           <Circle center={center} options={circleOptions} radius={125} />
         </GoogleMap>
-      )}
-    </main>
+      </main>
+    )
   );
 }
