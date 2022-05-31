@@ -49,7 +49,7 @@ export default function IPv4Input({
         helperText={isInvalidIp && 'Please enter a valid IPv4 Address'}
         id={isInvalidIp ? 'outlined-error' : 'outlined-basic'}
         label="Enter IPv4 Address"
-        onBlur={(evt) => getValidIpv4(evt)}
+        onBlur={getValidIpv4}
         onChange={allowOnlyIpv4Format}
         value={ipv4Format}
         variant="outlined"
