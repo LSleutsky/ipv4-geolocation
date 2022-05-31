@@ -6,13 +6,13 @@ import IPv4Input from 'components/IPv4Input';
 
 export default function Home() {
   const [isLocalIpv4, setIsLocalIpv4] = useState(false);
-  const [localIpv4Data, setIpv4Data] = useState({});
+  const [ipv4Data, setIpv4Data] = useState({});
   const [showIpv4Data, setShowIpv4Data] = useState(false);
   const [timeData, setTimeData] = useState({});
   const [validIpv4Address, setValidIpv4Address] = useState('');
 
-  const getIpv4Data = (ipv4Data, isLocal) => {
-    setIpv4Data(ipv4Data);
+  const getIpv4Data = (data, isLocal) => {
+    setIpv4Data(data);
     setIsLocalIpv4(isLocal);
   };
   const getTimeData = (timeData) => setTimeData(timeData);
@@ -48,11 +48,7 @@ export default function Home() {
       </main>
 
       {showIpv4Data && (
-        <IPv4Data
-          {...localIpv4Data}
-          isLocalIpv4={isLocalIpv4}
-          timeData={timeData}
-        />
+        <IPv4Data {...ipv4Data} isLocalIpv4={isLocalIpv4} timeData={timeData} />
       )}
     </>
   );
