@@ -44,18 +44,18 @@ export default function IPv4Data({
                 <Typography component="div" variant="h4">
                   {ipv4}
                 </Typography>
-                <Typography color="text.secondary" sx={{ fontSize: 15 }}>
-                  {country}
+                <Typography color="text.secondary" sx={{ fontSize: 15, mb: 2 }}>
+                  {`${country} | ${continent.toUpperCase()}`}
                 </Typography>
-                <Typography color="text.secondary" sx={{ fontSize: 15 }}>
-                  {continent.toUpperCase()}
-                </Typography>
-                <Typography color="text.secondary" sx={{ fontSize: 15, mt: 2 }}>
+                <Typography
+                  color="text.secondary"
+                  sx={{ fontSize: 15, fontStyle: 'italic', mt: 2 }}
+                >
                   {currentLocationDateTime}
                 </Typography>
                 <Typography
                   color="text.secondary"
-                  sx={{ fontSize: 15, mb: city ? 2 : 3 }}
+                  sx={{ fontSize: 15, fontStyle: 'italic', mb: city ? 2 : 3 }}
                 >
                   {`${timezone} (GMT ${utcOffset})`}
                 </Typography>
