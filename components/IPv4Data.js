@@ -25,8 +25,8 @@ export default function IPv4Data({
   const isLocalIpv4Class = isLocalIpv4 ? 'text-emerald-600' : 'text-sky-600';
   const timezone = timeData?.timezone;
   const utcOffset = timeData?.utc_offset;
-  const cardClass = ipv4 ? `md:h-96` : 'h-fit';
-  const cardContentClass = ipv4 ? `md:w-4/12 md:mr-0` : `md:w-8/12`;
+  const cardClass = ipv4 ? 'md:h-96' : 'h-fit';
+  const cardContentClass = ipv4 ? 'md:w-4/12 md:mr-0' : 'md:w-8/12';
 
   return (
     <main className="flex flex-col md:flex-row m-auto mb-4">
